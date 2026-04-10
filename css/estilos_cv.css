@@ -1,0 +1,16 @@
+body{
+    background-color: rgb(192, 199, 204);
+    padding-top: 10px;
+}
+
+p{
+    color: blue;
+}
+
+#hab_blandas{
+    list-style:disc;
+}
+
+.lista{    
+    color: rebeccapurple    ;
+}
