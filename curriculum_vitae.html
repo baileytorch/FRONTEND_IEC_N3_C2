@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="/css/estilos_cv.css">
     <!-- <link rel="stylesheet" href="/css/bootstrap.min.css"> -->
     <!-- <link rel="stylesheet" href="/css/bootstrap-quartz.css"> -->
-     <link rel="stylesheet" href="/css/bootstrap-slate.css">
+    <link rel="stylesheet" href="/css/bootstrap-slate.css">
     <script src="/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
 </head>
@@ -240,10 +240,9 @@
             <div class="col"><button type="button" class="btn1 btn2 btn3 btn4 btn5">Botón HTML 5</button></div>
             <div class="col"><button type="button" class="btn_generico">Botón HTML 6</button></div>
         </div>-->
-
         <br>
         <div class="row">
-            <div class="col"><button type="button" class="btn btn-primary">Primary</button></div>
+            <div class="col"><button type="button" onclick="accionar_boton();" class="btn btn-primary">Primary</button></div>
             <div class="col"><button type="button" class="btn btn-secondary">Secondary</button></div>
             <div class="col"><button type="button" class="btn btn-success">Success</button></div>
             <div class="col"><button type="button" class="btn btn-danger">Danger</button></div>
@@ -252,6 +251,12 @@
             <div class="col"><button type="button" class="btn btn-light">Light</button></div>
             <div class="col"><button type="button" class="btn btn-dark">Dark</button></div>
         </div>
+
+        <script>
+            function accionar_boton(){                
+                alert('Accionando Botón...')
+            }
+        </script>
 
         <br>
         <div class="row">
@@ -293,5 +298,9 @@
     </div> -->
 
 </body>
+
+<script>
+    alert('Cargando página...')
+</script>
 
 </html>
