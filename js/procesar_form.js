@@ -7,8 +7,15 @@ function validarFormulario(){
     let campoContrasena = document.getElementById('input_contrasena');
     let campoRepetirContrasena = document.getElementById('input_confirm_contrasena');
 
-    if(campoNombre.value == '' || campoRut.value == ''){
-        alert('Debe Ingresar los datos requeridos!')
+    if(campoNombre.value == ''){
+        campoNombre.classList.add('alerta');
+    }else{
+        campoNombre.classList.remove('alerta');
+    }
+    if(campoRut.value == ''){
+        campoRut.classList.add('alerta');
+    }else{
+        campoRut.classList.remove('alerta');
     }
 }
 
