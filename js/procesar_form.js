@@ -3,13 +3,13 @@ function validarFormulario(){
     let campoRut = document.getElementById('input_rut');
     let campoEmail = document.getElementById('input_email');
     let campoFechaNacimiento = document.getElementById('inputFechaNac');
-    let redioGenero = document.querySelector('input[name="radioGenero"]:checked');
+    let radioGenero = document.querySelector('input[name="radioGenero"]:checked');
     let campoContrasena = document.getElementById('input_contrasena');
     let campoRepetirContrasena = document.getElementById('input_confirm_contrasena');
 
-    if(campoNombre.value == ''){
-        alert('Debe Ingresar el Nombre!')
-    }else{}
+    if(campoNombre.value == '' || campoRut.value == ''){
+        alert('Debe Ingresar los datos requeridos!')
+    }
 }
 
 function funcionPrueba(){
