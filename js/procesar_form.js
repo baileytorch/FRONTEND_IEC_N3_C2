@@ -8,14 +8,14 @@ function validarFormulario(){
     let campoRepetirContrasena = document.getElementById('input_confirm_contrasena');
 
     if(campoNombre.value == ''){
-        campoNombre.classList.add('alerta');
+        campoNombre.classList.add('inputInvalido');
     }else{
-        campoNombre.classList.remove('alerta');
+        campoNombre.classList.remove('inputInvalido');
     }
     if(campoRut.value == ''){
-        campoRut.classList.add('alerta');
+        campoRut.classList.add('inputInvalido');
     }else{
-        campoRut.classList.remove('alerta');
+        campoRut.classList.remove('inputInvalido');
     }
 }
 
