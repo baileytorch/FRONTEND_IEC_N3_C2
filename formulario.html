@@ -37,11 +37,17 @@
                             <label for="input_nombre" class="form-label">Nombre:</label>
                             <input type="text" class="form-control" name="" id="input_nombre"
                                 placeholder="Ingrese nombre usuario" onchange="validarInput(this)">
+                            <div class="alert alert-danger" role="alert" id="alertaNombre">
+                                This is a danger alert—check it out!
+                            </div>
                         </div>
                         <div class="col">
                             <label for="input_rut" class="form-label">RUT:</label>
                             <input type="text" class="form-control" name="" id="input_rut"
-                                placeholder="Ingrese RUT usuario" onchange="validarInput(this)">
+                                placeholder="Ingrese RUT usuario" onchange="validarRut(this)">
+                            <div class="alert alert-danger" role="alert" id="alertaRut">
+                                This is a danger alert—check it out!
+                            </div>
                         </div>
                     </div>
                     <br>
@@ -51,6 +57,9 @@
                             <label for="input_email" class="form-label">Email:</label>
                             <input type="email" class="form-control" name="" id="input_email"
                                 placeholder="Ingrese email usuario" onchange="validarEmail(this)">
+                            <div class="alert alert-danger" role="alert"  id="alertaEmail">
+                                This is a danger alert—check it out!
+                            </div>
                         </div>
                     </div>
                     <br>
@@ -58,31 +67,23 @@
                     <div class="row">
                         <div class="col">
                             <label for="inputFechaNac" class="form-label">Fecha Nacimiento:</label>
-                            <input type="date" class="form-control" id="inputFechaNac" name="" onchange="validarInput(this)">
+                            <input type="date" class="form-control" id="inputFechaNac" name=""
+                                onchange="validarInput(this)">
+                            <div class="alert alert-danger" role="alert"  id="alertaFechaNacimiento">
+                                This is a danger alert—check it out!
+                            </div>
                         </div>
 
                         <div class="col">
-                            <p>Seleccione Género:</p>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="radioGenero" id="radioMasc" value="M"
-                                    required checked>
-                                <label class="form-check-label" for="radioMasc">
-                                    Masculino
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="radioGenero" id="radioFem" value="F"
-                                    required>
-                                <label class="form-check-label" for="radioFem">
-                                    Femenino
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="radioGenero" id="radioOtro" value="O"
-                                    required>
-                                <label class="form-check-label" for="radioOtro">
-                                    Otro
-                                </label>
+                            <label for="selectGenero" class="form-label">Género:</label>
+                            <select name="genero" id="selectGenero" class="form-select">
+                                <option value="" selected>Seleccione su género</option>
+                                <option value="F">Femenino</option>
+                                <option value="M">Masculino</option>
+                                <option value="O">Otro</option>
+                            </select>
+                            <div class="alert alert-danger" role="alert"  id="alertaGenero">
+                                This is a danger alert—check it out!
                             </div>
                         </div>
                     </div>
@@ -93,21 +94,27 @@
                             <label for="input_contrasena" class="form-label">Contraseña:</label>
                             <input type="password" class="form-control" name="" id="input_contrasena"
                                 placeholder="Ingrese contraseña" onchange="validarContraseñaSegura(this)">
+                            <div class="alert alert-danger" role="alert" id="alertaContrasena">
+                                This is a danger alert—check it out!
+                            </div>
                         </div>
 
                         <div class="col">
                             <label for="input_confirm_contrasena" class="form-label">Confirme Contraseña:</label>
                             <input type="password" class="form-control" name="" id="input_confirm_contrasena"
-                                placeholder="Ingrese nuevamente la contraseña" onchange="validarRepetirContrasena(this,campoContrasena)">
+                                placeholder="Ingrese nuevamente la contraseña"
+                                onchange="validarRepetirContrasena(this,campoContrasena)">
+                            <div class="alert alert-danger" role="alert" id="alertaRepetirContrasena">
+                                This is a danger alert—check it out!
+                            </div>
                         </div>
 
                     </div>
 
                     <br>
                     <div class="row">
-                        <div class="col"></div>
-                        <div class="col">
-                            <input type="button" class="btn btn-secondary" value="Cancelar">
+                        <div class="col d-flex justify-content-end">
+                            <button type="button" class="btn btn-secondary me-2">Cancelar</button>
                             <button type="button" onclick="validarFormulario()" class="btn btn-primary">Enviar</button>
                         </div>
                     </div>
