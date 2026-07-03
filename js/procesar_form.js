@@ -63,10 +63,14 @@ function validarEmail(elemento) {
     if (validarInput(elemento)) {
         const regexEmail = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
         if (regexEmail.test(elemento.value)) {
+            elemento.nextElementSibling.style.display = 'none';
+            elemento.nextElementSibling.textContent = '';
             elemento.classList.remove('inputInvalido', 'is-invalid');
             elemento.classList.add('is-valid');
             return true
         } else {
+            elemento.nextElementSibling.style.display = 'block';
+            elemento.nextElementSibling.textContent = 'Email inválido!';
             elemento.classList.add('inputInvalido', 'is-invalid');
             return false
         }
@@ -77,10 +81,14 @@ function validarContraseñaSegura(elemento) {
     if (validarInput(elemento)) {
         const regexContrasena = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/;
         if (regexContrasena.test(elemento.value)) {
+            elemento.nextElementSibling.style.display = 'none';
+            elemento.nextElementSibling.textContent = '';
             elemento.classList.remove('inputInvalido', 'is-invalid');
             elemento.classList.add('is-valid');
             return true
         } else {
+            elemento.nextElementSibling.style.display = 'block';
+            elemento.nextElementSibling.textContent = 'La CONTRASEÑA ingresada NO es segura!';
             elemento.classList.add('inputInvalido', 'is-invalid');
             return false
         }
@@ -90,10 +98,14 @@ function validarContraseñaSegura(elemento) {
 function validarRepetirContrasena(elemento, elemento2) {
     if (validarInput(elemento)) {
         if (elemento.value === elemento2.value) {
+            elemento.nextElementSibling.style.display = 'none';
+            elemento.nextElementSibling.textContent = '';
             elemento.classList.remove('inputInvalido', 'is-invalid');
             elemento.classList.add('is-valid');
             return true
         } else {
+            elemento.nextElementSibling.style.display = 'block';
+            elemento.nextElementSibling.textContent = 'Las contraseñas NO coinciden!';
             elemento.classList.add('inputInvalido', 'is-invalid');
             return false
         }
