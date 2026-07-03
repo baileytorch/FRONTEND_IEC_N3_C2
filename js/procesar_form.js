@@ -1,11 +1,16 @@
-window.onload = function(){
-    document.getElementById('alertaNombre').style.display = 'none';
-    document.getElementById('alertaRut').style.display = 'none';
-    document.getElementById('alertaEmail').style.display = 'none';
-    document.getElementById('alertaFechaNacimiento').style.display = 'none';
-    document.getElementById('alertaGenero').style.display = 'none';
-    document.getElementById('alertaContrasena').style.display = 'none';
-    document.getElementById('alertaRepetirContrasena').style.display = 'none';
+window.onload = function () {
+    // document.getElementById('alertaNombre').style.display = 'none';
+    // document.getElementById('alertaRut').style.display = 'none';
+    // document.getElementById('alertaEmail').style.display = 'none';
+    // document.getElementById('alertaFechaNacimiento').style.display = 'none';
+    // document.getElementById('alertaGenero').style.display = 'none';
+    // document.getElementById('alertaContrasena').style.display = 'none';
+    // document.getElementById('alertaRepetirContrasena').style.display = 'none';
+
+    let elementos = document.querySelectorAll('.alert');
+    elementos.forEach((elemento) => {
+        elemento.style.display = 'none';
+    })
 };
 
 function validarFormulario() {
@@ -13,21 +18,22 @@ function validarFormulario() {
     let campoRut = document.getElementById('input_rut');
     let campoEmail = document.getElementById('input_email');
     let campoFechaNacimiento = document.getElementById('inputFechaNac');
-    let radioGenero = document.querySelector('input[name="radioGenero"]:checked');
+    let selectGenero = document.getElementById('selectGenero');
     let campoContrasena = document.getElementById('input_contrasena');
     let campoRepetirContrasena = document.getElementById('input_confirm_contrasena');
     let formularioValido = true;
 
-    if (!validarInput(campoNombre)) { 
+    if (!validarInput(campoNombre)) {
         document.getElementById('alertaNombre').style.display = 'block';
-        formularioValido = false; 
+        formularioValido = false;
     }
-    if (!validarEmail(campoEmail)) { 
+    if (!validarEmail(campoEmail)) {
         document.getElementById('alertaRut').style.display = 'block';
-        formularioValido = false; 
+        formularioValido = false;
     }
     if (!validarRut(campoRut)) { formularioValido = false }
     if (!validarInput(campoFechaNacimiento)) { formularioValido = false; }
+    if (!validarInput(selectGenero)) { formularioValido = false; }
     if (!validarContraseñaSegura(campoContrasena)) { formularioValido = false; }
     if (!validarRepetirContrasena(campoRepetirContrasena, campoContrasena)) { formularioValido = false; }
 
@@ -40,9 +46,13 @@ function validarFormulario() {
 
 function validarInput(elemento) {
     if (elemento.value == '') {
+        elemento.nextElementSibling.style.display = 'block';
+        elemento.nextElementSibling.textContent = 'El campo es OBLIGATORIO!';
         elemento.classList.add('inputInvalido', 'is-invalid');
         return false
     } else {
+        elemento.nextElementSibling.style.display = 'none';
+        elemento.nextElementSibling.textContent = '';
         elemento.classList.remove('inputInvalido', 'is-invalid');
         elemento.classList.add('is-valid');
         return true
@@ -93,10 +103,12 @@ function validarRepetirContrasena(elemento, elemento2) {
 function validarRut(elemento) {
     // Valida el rut con su cadena completa "XXXXXXXX-X"
     regexRut = /^[0-9]+[-‐]{1}[0-9kK]{1}$/;
-    const rutCompleto = elemento.value.replaceAll('.','');
+    const rutCompleto = elemento.value.replaceAll('.', '');
 
     if (validarInput(elemento)) {
         if (!regexRut.test(rutCompleto)) {
+            elemento.nextElementSibling.style.display = 'block';
+            elemento.nextElementSibling.textContent = 'El formato del RUT NO corresponde!';
             elemento.classList.add('inputInvalido', 'is-invalid');
             return false
         } else {
@@ -105,10 +117,14 @@ function validarRut(elemento) {
             var rut = tmp[0];
             if (digv == 'K') digv = 'k';
             if (calculoDv(rut) == digv) {
+                elemento.nextElementSibling.style.display = 'none';
+                elemento.nextElementSibling.textContent = '';
                 elemento.classList.remove('inputInvalido', 'is-invalid');
                 elemento.classList.add('is-valid');
                 return true
             } else {
+                elemento.nextElementSibling.style.display = 'block';
+                elemento.nextElementSibling.textContent = 'RUT inválido!';
                 elemento.classList.add('inputInvalido', 'is-invalid');
                 return false
             };
